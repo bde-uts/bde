@@ -6,8 +6,8 @@ services:
         restart: always
         environment:
             - POSTGRES_USER=bde_lab_1
-            - POSTGRES_DB=bde_lab_1
             - POSTGRES_PASSWORD=bde_lab_1
+            - POSTGRES_DB=postgres
         volumes:
             - ./data:/var/lib/postgresql/data
         ports:
@@ -23,6 +23,6 @@ services:
         environment:
             - JUPYTER_ENABLE_LAB=yes
         volumes:
-            - ../:/home/jovyan/work
+            - ./:/home/jovyan/work
         depends_on: 
-            - mlflow
+            - postgres
