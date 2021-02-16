@@ -4,6 +4,7 @@ services:
     postgres:
         image: postgres:11
         restart: always
+        container_name: postgres
         environment:
             - POSTGRES_USER=bde_lab_1
             - POSTGRES_PASSWORD=bde_lab_1
