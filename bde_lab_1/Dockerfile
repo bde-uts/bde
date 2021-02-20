@@ -82,7 +82,8 @@ USER $NB_UID
 RUN pip install pyarrow==2.0.0 \
     && pip install findspark==1.4.2 \
     && pip install pyspark==2.4.5 \
-    && pip install psycopg2-binary==2.8.5
+    && pip install psycopg2-binary==2.8.5 \
+    && pip install pymongo==3.11.3
 
 ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/work"
 
