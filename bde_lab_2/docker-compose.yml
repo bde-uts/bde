@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+    mongo:
+        image: mongo:4.2
+        restart: always
+        #command: ["--bind_ip_all"]
+        container_name: mongo
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=mongo
+            - MONGO_INITDB_ROOT_PASSWORD=mongo
+        volumes:
+            - ./data://data/db
+        ports:
+            - "27017:27017"
+    jupyter:
+        restart: always
+        build:
+            context: .
+            dockerfile: ../bde_lab_1/Dockerfile
+        container_name: jupyter_docker
+        ports:
+            - "8888:8888"
+        environment:
+            - JUPYTER_ENABLE_LAB=yes
+        volumes:
+            - ./:/home/jovyan/work
+        depends_on: 
+            - mongo
