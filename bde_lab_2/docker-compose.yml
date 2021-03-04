@@ -3,7 +3,7 @@ version: '3.7'
 services:
     mongo:
         image: mongo:4.2
-        restart: always
+        restart: "no"
         #command: ["--bind_ip_all"]
         container_name: mongo
         environment:
@@ -14,11 +14,9 @@ services:
         ports:
             - "27017:27017"
     jupyter:
-        restart: always
-        build:
-            context: .
-            dockerfile: ../bde_lab_1/Dockerfile
-        container_name: jupyter_docker
+        restart: "no"
+        image: bde_lab_1_jupyter
+        container_name: jupyter_docker_lab_2
         ports:
             - "8888:8888"
         environment:
