@@ -2,11 +2,10 @@ version: '3.7'
 
 services:
     jupyter:
-        restart: always
         build:
             context: .
             dockerfile: ./Dockerfile
-        container_name: jupyter_docker_lab_3
+        container_name: jupyter_docker_lab_4
         ports:
             - "8888:8888"
         environment:
