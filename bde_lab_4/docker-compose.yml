@@ -8,6 +8,8 @@ services:
         container_name: jupyter_docker_lab_4
         ports:
             - "8888:8888"
+        env_file:
+            - .env
         environment:
             - GRANT_SUDO=yes
             - JUPYTER_ENABLE_LAB=yes
