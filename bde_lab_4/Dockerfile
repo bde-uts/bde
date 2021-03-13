@@ -79,11 +79,11 @@ RUN chmod 644 $SPARK_HOME/jars/spark-avro_2.11-2.4.4.jar
 
 USER $NB_UID
 
-RUN pip install pyarrow==2.0.0 \
-    && pip install findspark==1.4.2 \
-    && pip install pyspark==2.4.5 \
+RUN pip install py4j \
     && pip install boto3==1.16.5 \
-    && pip install pandas
+    && pip install pyarrow==2.0.0 \
+    && pip install findspark==1.4.2 \
+    && pip install pyspark==2.4.5
 
 ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/work"
 
