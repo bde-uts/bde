@@ -2,6 +2,9 @@
 *.ipynb
 *data
 *.ipynb_checkpoints
+*dags
+*logs
+*plugins
 
 *.idea
 *.env
