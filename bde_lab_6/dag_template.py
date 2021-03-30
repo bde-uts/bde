@@ -1,4 +1,4 @@
-import os
+ import os
 from datetime import datetime, timedelta
 
 #########################################################
@@ -28,7 +28,7 @@ dag_default_args = {
     'retries': 1,
     'retry_delay': timedelta(minutes=60),
     'depends_on_past': False,
-    'wait_for_downstream': True,
+    'wait_for_downstream': False,
 }
 
 dag = DAG(

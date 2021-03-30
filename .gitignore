@@ -5,6 +5,7 @@
 *dags
 *logs
 *plugins
+*dags/*.py
 
 *.idea
 *.env
