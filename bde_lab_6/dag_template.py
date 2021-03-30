@@ -48,10 +48,10 @@ dag = DAG(
 #########################################################
 
 
-def do_something_1_func():
+def do_something_1_func(**kwargs):
     pass
 
-def do_something_2_func():
+def do_something_2_func(**kwargs):
     pass
 
 
@@ -67,7 +67,7 @@ from airflow.operators.python_operator import PythonOperator
 do_something_1_task = PythonOperator(
     task_id='do_something_1_taskid',
     python_callable=do_something_1_func,
-    template_dict={'execution_date': '{{ execution_date }}'},
+    op_kwargs={'execution_date': '{{ execution_date }}'},
     provide_context=True,
     dag=dag
 )
@@ -75,7 +75,7 @@ do_something_1_task = PythonOperator(
 do_something_2_task = PythonOperator(
     task_id='do_something_2_taskid',
     python_callable=do_something_2_func,
-    template_dict={},
+    op_kwargs={},
     provide_context=True,
     dag=dag
 )
