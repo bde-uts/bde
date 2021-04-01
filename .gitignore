@@ -2,6 +2,10 @@
 *.ipynb
 *data
 *.ipynb_checkpoints
+*dags
+*logs
+*plugins
+*dags/*.py
 
 *.idea
 *.env
