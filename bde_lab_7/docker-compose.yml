@@ -13,6 +13,7 @@ services:
         - JUPYTER_ENABLE_LAB=yes
     volumes:
         - ./:/home/jovyan/work
+        
   zookeeper:
     image: confluentinc/cp-zookeeper:6.1.1
     hostname: zookeeper
