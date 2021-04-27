@@ -1,4 +1,4 @@
- import os
+import os
 from datetime import datetime, timedelta
 
 #########################################################
@@ -7,8 +7,8 @@ from datetime import datetime, timedelta
 #
 #########################################################
 
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+# AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+# AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 
 
 ########################################################
@@ -21,7 +21,7 @@ from airflow import DAG
 
 dag_default_args = {
     'owner': 'your name',
-    'start_date': datetime(2021, 2, 16, hour=6, minute=0),
+    'start_date': datetime(2021, 4, 25, hour=10, minute=0),
     'email': [],
     'email_on_failure': True,
     'email_on_retry': False,
@@ -51,6 +51,7 @@ dag = DAG(
 def do_something_1_func(**kwargs):
     pass
 
+
 def do_something_2_func(**kwargs):
     pass
 
@@ -62,7 +63,6 @@ def do_something_2_func(**kwargs):
 #########################################################
 
 from airflow.operators.python_operator import PythonOperator
-
 
 do_something_1_task = PythonOperator(
     task_id='do_something_1_taskid',
@@ -81,6 +81,3 @@ do_something_2_task = PythonOperator(
 )
 
 do_something_1_task >> do_something_2_task
-
-
-
