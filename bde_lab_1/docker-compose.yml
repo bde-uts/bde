@@ -13,6 +13,18 @@ services:
             - ./data:/var/lib/postgresql/data
         ports:
             - "5432:5432"
+    mongo:
+        image: mongo:4.2
+        restart: "no"
+        #command: ["--bind_ip_all"]
+        container_name: mongo
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=mongo
+            - MONGO_INITDB_ROOT_PASSWORD=mongo
+        volumes:
+            - ./data://data/db
+        ports:
+            - "27017:27017"
     jupyter:
         restart: always
         build:
@@ -27,3 +39,4 @@ services:
             - ./:/home/jovyan/work
         depends_on: 
             - postgres
+            - mongo
