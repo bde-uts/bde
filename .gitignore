@@ -1,6 +1,5 @@
 *.parquet
 *.ipynb
-*data
 *.ipynb_checkpoints
 *dags
 *logs
