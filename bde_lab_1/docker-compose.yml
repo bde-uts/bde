@@ -12,7 +12,7 @@ services:
         volumes:
             - ./data:/var/lib/postgresql/data
         ports:
-            - "5432:5432"
+            - "5433:5432"
     mongo:
         image: mongo:4.2
         restart: "no"
@@ -24,18 +24,3 @@ services:
             - ./data://data/db
         ports:
             - "27017:27017"
-    jupyter:
-        restart: always
-        build:
-            context: .
-            dockerfile: ./Dockerfile
-        container_name: jupyter_docker
-        ports:
-            - "8888:8888"
-        environment:
-            - JUPYTER_ENABLE_LAB=yes
-        volumes:
-            - ./:/home/jovyan/work
-        depends_on: 
-            - postgres
-            - mongo
